@@ -10656,3 +10656,8 @@ a.text-dark:focus {
   font-size: 4.5em;
 }
 
+.main-container {
+  padding-top: 80px;
+  max-height: 1000px;
+}
+

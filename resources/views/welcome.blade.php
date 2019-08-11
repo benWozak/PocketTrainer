@@ -9,8 +9,6 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
 
-        
-
     </head>
     <body>
        <div id="app">
@@ -27,7 +25,7 @@
                                     @else
                                         <v-btn href="{{ route('login') }}" ripple flat>Login</v-btn>
                                     @if (Route::has('register'))
-                                        <v-btn href="{{ route('register') }}" ripple flat>Register</v-btn>
+                                        <v-btn href="{{ route('register') }}" ripple flat>Sign up</v-btn>
                                         @endif
                                     @endauth
                                 </div>
@@ -57,7 +55,7 @@
                                         <v-list-tile>
                                             <v-list-tile-content>
                                                     <v-list-tile-title>
-                                                        <a href="{{ route('register') }}">Register</a>
+                                                        <a href="{{ route('register') }}">Sign Up</a>
                                                     </v-list-tile-title>
                                             </v-list-tile-content>
                                         </v-list-tile>

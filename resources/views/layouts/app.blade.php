@@ -7,9 +7,11 @@
 
     <title>{{ config('app.name', 'PocketTrainer') }}</title>
 
-    <!-- Fonts -->
+    <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animate.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -18,12 +20,13 @@
     <div id="app">
         <v-app>
             <div class="hide-overflow" style="position: relative;">
-                <v-toolbar absolute color="teal darken-4" dark scroll-off-screen scroll-target="#scrolling-techniques">
+                <v-toolbar absolute color="grey darken-4" dark scroll-off-screen scroll-target="#scrolling-techniques">
                     {{-- <v-toolbar-side-icon></v-toolbar-side-icon> --}}
-                    <v-toolbar-title>
+                    <v-toolbar-title class="deep-orange--text text--accent-3">
                         @if (Route::has('login'))
                             @auth
-                                Let's do this {{ Auth::user()->name }}!</v-toolbar-title>
+                                <router-link to="/home" class="deep-orange--text text--accent-3">Let's do this {{ Auth::user()->name }}!</router-link>
+                        </v-toolbar-title>
                         @else
                                 {{ config('app.name', 'PocketTrainer') }}
                             @endauth
@@ -32,35 +35,36 @@
 
                     <!-- Authentication Links -->
                     @guest
-                        <v-btn href="{{ route('login') }}" ripple flat>{{ __('Login') }}</v-btn>
+                        <v-btn class="deep-orange--text text--accent-3" href="{{ route('login') }}" ripple flat>{{ __('Login') }}</v-btn>
                         @if (Route::has('register'))
-                            <v-btn href="{{ route('register') }}" ripple flat>{{ __('Register') }}</v-btn>
+                            <v-btn class="deep-orange--text text--accent-3" href="{{ route('register') }}" ripple flat>{{ __('Register') }}</v-btn>
                         @endif
                     @else
-                    
-                    <v-btn icon>
-                        <v-icon>mdi-dumbbell</v-icon>
+                        
+                    <v-btn to="/workout" icon>
+                        <v-icon class="deep-orange--text text--accent-3">mdi-dumbbell</v-icon>
                     </v-btn>
             
-                    <v-btn icon>
-                        <v-icon>mdi-calendar-repeat</v-icon>
+                    <v-btn to="/schedule" icon>
+                        <v-icon class="deep-orange--text text--accent-3">mdi-calendar-repeat</v-icon>
                     </v-btn>
                     
                     <v-menu bottom left>
                         <template v-slot:activator="{ on }">
                             <v-btn icon v-on="on">
-                                <v-icon>mdi-account-heart</v-icon>
+                                <v-icon class="deep-orange--text text--accent-3">mdi-account-heart</v-icon>
                             </v-btn>
                         </template>
-                        <v-list>
+                        <v-list class="grey darken-4">
                             <v-list-tile>
                                 <v-list-tile-title>
-                                    Profile
+                                    <router-link to="/profile" class="deep-orange--text text--accent-4">Profile</router-link>
                                 </v-list-tile-title>
                             </v-list-tile>
                             <v-list-tile>
                                 <v-list-tile-title>
-                                    <a href="{{ route('logout') }}"
+                                    <a class="deep-orange--text text--accent-4"
+                                        href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

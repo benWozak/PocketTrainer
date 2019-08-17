@@ -9,8 +9,41 @@ require('./bootstrap');
 window.Vue = require('vue');
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import VueRouter from 'vue-router'
 
 Vue.use(Vuetify)
+Vue.use(VueRouter)
+
+import App from './views/App'
+import Profile from './components/Profile'
+import Workout from './components/Workout'
+import Schedule from './components/Schedule'
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/home',
+            name: 'app',
+            component: App
+        },
+        {
+            path: '/profile',
+            name: 'profile',
+            component: Profile
+        },
+        {
+            path: '/schedule',
+            name: 'schedule',
+            component: Schedule,
+        },
+        {
+            path: '/workout',
+            name: 'workout',
+            component: Workout,
+        },
+    ],
+});
 
 /**
  * The following block of code may be used to automatically register your
@@ -33,4 +66,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    components: { App },
+    router,
 });

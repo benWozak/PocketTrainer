@@ -10652,6 +10652,30 @@ a.text-dark:focus {
   font-family: "Righteous", cursive;
 }
 
+:focus {
+  outline: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:hover::after,
+a:focus::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform 150ms eas-in-out;
+}
+
+.main-container {
+  padding-top: 80px;
+  height: screen;
+}
+
 .top-right {
   padding: 20px;
 }
@@ -10659,11 +10683,6 @@ a.text-dark:focus {
 .banner-text {
   font-weight: 100;
   font-size: 100px;
-}
-
-.main-container {
-  padding-top: 80px;
-  max-height: 1000px;
 }
 
 @media (max-width: 768px) {

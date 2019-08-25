@@ -18,14 +18,14 @@
 </head>
 <body>
     <div id="app">
-        <v-app>
+        <v-app dark class="grey darken-3">
             <div class="hide-overflow" style="position: relative;">
                 <v-toolbar absolute color="grey darken-4" dark scroll-off-screen scroll-target="#scrolling-techniques">
                     {{-- <v-toolbar-side-icon></v-toolbar-side-icon> --}}
                     <v-toolbar-title class="deep-orange--text text--accent-3">
                         @if (Route::has('login'))
                             @auth
-                                <router-link to="/home" class="deep-orange--text text--accent-3">Let's do this {{ Auth::user()->name }}!</router-link>
+                                <router-link to="/home" class="deep-orange--text text--accent-3">Let's do this!</router-link>
                         </v-toolbar-title>
                         @else
                                 {{ config('app.name', 'PocketTrainer') }}
@@ -80,7 +80,7 @@
                     </v-menu>
                     
                 </v-toolbar>
-                <div id="scrolling-techniques" class="scroll-y" style="max-height: 600px;">
+                <div id="scrolling-techniques" class="scroll-y">
                     <v-container class="main-container">
                         @yield('content')
                     </v-container>

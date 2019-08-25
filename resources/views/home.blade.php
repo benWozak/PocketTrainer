@@ -3,9 +3,9 @@
     
 
 @section('content')
-    <v-content>
-        <v-container fluid>
+    {{-- <v-content fill-height>
+        <v-container fluid> --}}
             <router-view></router-view>
-        </v-container>
-    </v-content>
+        {{-- </v-container>
+    </v-content> --}}
 @endsection
